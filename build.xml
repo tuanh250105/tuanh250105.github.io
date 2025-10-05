@@ -46,4 +46,10 @@
     <echo message="🚀 Deployed to Tomcat: ${tomcat.webapps}/${war.name}" />
   </target>
 
+  <!-- 🚀 Deploy as ROOT context (serve at /) -->
+  <target name="deploy-root" depends="war">
+    <copy file="${war.dir}/${war.name}" tofile="${tomcat.webapps}/ROOT.war" overwrite="true" />
+    <echo message="🚀 Deployed as ROOT: ${tomcat.webapps}/ROOT.war" />
+  </target>
+
 </project>

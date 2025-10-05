@@ -47,8 +47,12 @@ COPY WebContent/WEB-INF/lib/*.jar ${CATALINA_HOME}/lib/
 # points to the container Tomcat installation. Also use JDK image so javac is available.
 RUN ant -Dtomcat.home=${CATALINA_HOME} war
 
-# Copy WAR file vào webapps
-RUN cp build/war/TA_project_web.war ${CATALINA_HOME}/webapps/
+# Install entrypoint script that will deploy the WAR as ROOT and adjust port at runtime
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+### Do not copy the WAR into webapps at build-time; the entrypoint will place it at runtime
+### This avoids Tomcat unpacking the default ROOT before we can remove/replace it on some platforms.
 
 # Tạo thư mục cho logs và config
 RUN mkdir -p ${CATALINA_HOME}/logs && \
@@ -60,7 +64,8 @@ EXPOSE 8080
 # Thiết lập environment variables
 ENV CATALINA_OPTS="-Xmx512m -Xms256m"
 
-# Chuyển sang user tomcat
+# Ensure entrypoint runs as root to modify files, then switch to tomcat for runtime
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 USER tomcat
 
 # Health check
