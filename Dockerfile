@@ -66,7 +66,6 @@ ENV CATALINA_OPTS="-Xmx512m -Xms256m"
 
 # Ensure entrypoint runs as root to modify files, then switch to tomcat for runtime
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
-USER tomcat
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=60s --retries=3 \

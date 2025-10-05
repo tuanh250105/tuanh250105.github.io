@@ -25,5 +25,6 @@ fi
 
 chown -R tomcat:tomcat "$CATALINA_HOME"
 
-echo "[entrypoint] Starting Tomcat..."
-exec "$CATALINA_HOME/bin/catalina.sh" run
+echo "[entrypoint] Starting Tomcat as tomcat user..."
+# Drop privileges and run Tomcat as the 'tomcat' user. Use su to switch user.
+exec su -s /bin/sh tomcat -c "$CATALINA_HOME/bin/catalina.sh run"
