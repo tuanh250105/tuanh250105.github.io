@@ -1,24 +1,24 @@
 {
   "personal":{
-    "name":"Lê Trần Tuấn Anh",
-    "title":"Data Engineering Student",
-    "school":"Đại học Sư phạm Kỹ thuật TP.HCM (HCMUTE)",
-    "department":"Công nghệ Thông tin",
-    "major":"Kỹ thuật Dữ liệu",
-    "bio":"Tôi là Lê Trần Tuấn Anh, sinh viên ngành Kỹ thuật Dữ liệu tại Đại học Sư phạm Kỹ thuật TP.HCM. Tôi đam mê phát triển ứng dụng web toàn diện, đặc biệt trong các lĩnh vực Backend và Cơ sở dữ liệu. Tôi đã thực hiện nhiều dự án học thuật và cá nhân với Java Servlet, NestJS, Flask, SQL Server, PostgreSQL, MongoDB, và triển khai hệ thống qua Docker, Flyway, AWS S3. Mục tiêu của tôi là trở thành Data Engineer hoặc Backend Developer có tư duy hệ thống, tối ưu và khả năng làm việc nhóm hiệu quả.",
+  "name":"Lê Trần Tuấn Anh",
+  "title":"Data Engineering Student",
+  "school":"Ho Chi Minh City University of Technology and Education (HCMUTE)",
+  "department":"Information Technology",
+  "major":"Data Engineering",
+  "bio":"I am Lê Trần Tuấn Anh, a Data Engineering student at Ho Chi Minh City University of Technology and Education. I am passionate about end-to-end web application development, particularly backend systems and database design. I have completed academic and personal projects using Java Servlet, NestJS, Flask, SQL Server, PostgreSQL, and MongoDB, and have deployed systems with Docker, Flyway, and AWS S3. My goal is to become a Data Engineer or Backend Developer with a systems-oriented mindset and strong teamwork skills.",
     "skills":["Java 17","SQL Server","PostgreSQL","Docker","Hadoop","NestJS","MongoDB","AWS S3"]
   },
   "skillsTable":[
-    {"area":"Backend","level":80,"description":"Thành thạo Java Servlet, Flask, NestJS; hiểu rõ kiến trúc RESTful & MVC."},
-    {"area":"Frontend","level":60,"description":"Tốt với HTML/CSS/JS, JSP/Thymeleaf, Chart.js, có cảm quan UI/UX."},
-    {"area":"Web Development","level":80,"description":"Phát triển dự án full-stack (BudgetBuddy, Viet-Shop, Hadoop pipeline)."},
-    {"area":"SQL & Database","level":95,"description":"Rất mạnh về SQL Server (triggers, SP, auditing), PostgreSQL, MongoDB."}
+  {"area":"Backend","level":80,"description":"Proficient with Java Servlet, Flask, and NestJS; strong understanding of RESTful APIs and MVC architecture."},
+  {"area":"Frontend","level":60,"description":"Skilled with HTML/CSS/JS, JSP/Thymeleaf, Chart.js; good UI/UX sense."},
+  {"area":"Web Development","level":80,"description":"Experience building full-stack projects (BudgetBuddy, Viet-Shop, Hadoop pipeline)."},
+  {"area":"SQL & Database","level":95,"description":"Expert in SQL Server (triggers, stored procedures, auditing), PostgreSQL, and MongoDB."}
   ],
   "projects":[
-    {"title":"BudgetBuddy / Expense-Tracker","desc":"Java Servlet + PostgreSQL + Docker + Flyway + Chart.js + JSP/Thymeleaf. Ứng dụng quản lý chi tiêu, hiển thị thống kê, xác thực user, deploy Docker.","tags":["Java","PostgreSQL","Docker","Chart.js"],"github":""},
-    {"title":"Viet-Shop","desc":"NestJS + MongoDB + AWS S3 + Node 22. Nền tảng thương mại & cho thuê quần áo, có quản lý vai trò và upload ảnh S3.","tags":["NestJS","MongoDB","AWS S3"],"github":""},
-    {"title":"Hadoop Data Pipeline","desc":"HDFS + MapReduce + Sqoop. Thu thập dữ liệu thiết bị di động, import/export giữa MySQL & HDFS, CSV output.","tags":["Hadoop","MapReduce","Sqoop"],"github":""},
-    {"title":"RL Tic-Tac-Toe AI","desc":"Reinforcement Learning (Q-Learning & DQN, Pygame). So sánh hiệu quả học tập của các agent AI tự chơi Tic-Tac-Toe.","tags":["Python","Reinforcement Learning","Pygame"],"github":""}
+  {"title":"BudgetBuddy / Expense-Tracker","desc":"Java Servlet + PostgreSQL + Docker + Flyway + Chart.js + JSP/Thymeleaf. Expense management app with statistics, user authentication, and Docker deployment.","tags":["Java","PostgreSQL","Docker","Chart.js"],"github":""},
+  {"title":"Viet-Shop","desc":"NestJS + MongoDB + AWS S3 + Node 22. E-commerce and rental platform for clothing with role-based management and image uploads to S3.","tags":["NestJS","MongoDB","AWS S3"],"github":""},
+  {"title":"Hadoop Data Pipeline","desc":"HDFS + MapReduce + Sqoop. Mobile device data ingestion pipeline with import/export between MySQL and HDFS, CSV outputs.","tags":["Hadoop","MapReduce","Sqoop"],"github":""},
+  {"title":"RL Tic-Tac-Toe AI","desc":"Reinforcement Learning (Q-Learning & DQN, Pygame). Comparative study of learning performance for self-playing Tic-Tac-Toe agents.","tags":["Python","Reinforcement Learning","Pygame"],"github":""}
   ],
   "contact":{
     "github":"https://github.com/tuanh250105",

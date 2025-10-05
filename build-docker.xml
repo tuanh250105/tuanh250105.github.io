@@ -8,7 +8,8 @@
   <property name="classes.dir" value="${build.dir}/classes" />
   <property name="war.dir" value="${build.dir}/war" />
   <property name="war.name" value="TA_project_web.war" />
-  <property name="tomcat.home" value="C:/apache-tomcat-9.0.109" />
+  <!-- Docker environment - sử dụng Tomcat trong container -->
+  <property name="tomcat.home" value="/opt/tomcat" />
   <property name="tomcat.webapps" value="${tomcat.home}/webapps" />
 
   <!-- 🧹 Dọn build -->
@@ -24,8 +25,17 @@
         <fileset dir="${tomcat.home}/lib">
           <include name="*.jar" />
         </fileset>
+        <!-- Thêm các JAR dependencies từ WebContent/WEB-INF/lib -->
+        <fileset dir="${web.dir}/WEB-INF/lib">
+          <include name="*.jar" />
+        </fileset>
+        <!-- Thêm servlet-api.jar từ lib -->
+        <fileset dir="lib">
+          <include name="*.jar" />
+        </fileset>
       </classpath>
     </javac>
+    <echo message="✅ Compiled Java classes to ${classes.dir}" />
   </target>
 
   <!-- 📦 Package WAR -->
@@ -34,16 +44,26 @@
     <war destfile="${war.dir}/${war.name}" webxml="${web.dir}/WEB-INF/web.xml">
       <fileset dir="${web.dir}">
         <exclude name="WEB-INF/web.xml" />
+        <exclude name="WEB-INF/lib/*.jar" />
       </fileset>
       <classes dir="${classes.dir}" />
+      <!-- Copy JAR dependencies -->
+      <lib dir="${web.dir}/WEB-INF/lib" />
     </war>
     <echo message="✅ WAR created at ${war.dir}/${war.name}" />
   </target>
 
-  <!-- 🚀 Deploy lên Tomcat -->
+  <!-- 🚀 Deploy lên Tomcat (trong Docker container) -->
   <target name="deploy" depends="war">
     <copy file="${war.dir}/${war.name}" todir="${tomcat.webapps}" overwrite="true" />
     <echo message="🚀 Deployed to Tomcat: ${tomcat.webapps}/${war.name}" />
+  </target>
+
+  <!-- 🐳 Target đặc biệt cho Docker build -->
+  <target name="docker-build" depends="war">
+    <echo message="🐳 Building for Docker deployment..." />
+    <!-- Không cần copy vào tomcat.webapps vì Dockerfile sẽ làm điều này -->
+    <echo message="✅ Docker WAR ready at ${war.dir}/${war.name}" />
   </target>
 
 </project>

@@ -13,7 +13,17 @@
   // Reveal on scroll
   const reveals = document.querySelectorAll('.reveal');
   const rObs = new IntersectionObserver((entries)=>{
-    entries.forEach(ent=>{ if(ent.isIntersecting){ ent.target.classList.add('visible'); rObs.unobserve(ent.target); } });
+    entries.forEach(ent=>{
+      if(ent.isIntersecting){
+        ent.target.classList.add('visible');
+        // animate any skill-fill children inside
+        ent.target.querySelectorAll && ent.target.querySelectorAll('.skill-fill').forEach(el=>{
+          const v = el.style.getPropertyValue('--value') || el.getAttribute('data-value') || '';
+          if(v){ void el.offsetWidth; el.style.width = v.trim(); }
+        });
+        rObs.unobserve(ent.target);
+      }
+    });
   },{threshold:0.12});
   reveals.forEach(r=>rObs.observe(r));
 

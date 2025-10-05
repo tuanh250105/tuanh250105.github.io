@@ -12,8 +12,8 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 /**
- * Utility class để gửi tin nhắn tới Telegram Bot API.
- * Token và chat_id được truyền vào (không hardcode trong class này).
+ * Utility class to send messages to the Telegram Bot API.
+ * Token and chat_id are passed in (not hardcoded in this class).
  */
 public class TelegramSender {
 
@@ -23,7 +23,7 @@ public class TelegramSender {
      * @param chatId chat id (số hoặc @channel)
      * @param text nội dung tin nhắn (plain text, có thể chứa các ký tự Unicode)
      * @return true nếu Telegram trả về HTTP 2xx, false nếu không
-     * @throws IOException khi có lỗi kết nối hoặc đọc/ghi
+    * @throws IOException when a connection or read/write error occurs
      */
     public static boolean sendMessage(String token, String chatId, String text) throws IOException {
         if (token == null || token.isEmpty()) throw new IllegalArgumentException("token is required");
