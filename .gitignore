@@ -1,0 +1,10 @@
+# build artifacts
+/build/
+*.war
+
+# IDE
+/.idea/
+*.iml
+
+# Local env file
+.env

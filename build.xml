@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="TA_project_web" default="deploy" basedir=".">
+
+  <!-- 🧱 Cấu hình thư mục -->
+  <property name="src.dir" value="src" />
+  <property name="web.dir" value="WebContent" />
+  <property name="build.dir" value="build" />
+  <property name="classes.dir" value="${build.dir}/classes" />
+  <property name="war.dir" value="${build.dir}/war" />
+  <property name="war.name" value="TA_project_web.war" />
+  <property name="tomcat.home" value="C:/apache-tomcat-9.0.109" />
+  <property name="tomcat.webapps" value="${tomcat.home}/webapps" />
+
+  <!-- 🧹 Dọn build -->
+  <target name="clean">
+    <delete dir="${build.dir}" />
+  </target>
+
+  <!-- ⚙️ Biên dịch -->
+  <target name="compile" depends="clean">
+    <mkdir dir="${classes.dir}" />
+    <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false" encoding="UTF-8">
+      <classpath>
+        <fileset dir="${tomcat.home}/lib">
+          <include name="*.jar" />
+        </fileset>
+      </classpath>
+    </javac>
+  </target>
+
+  <!-- 📦 Đóng gói WAR -->
+  <target name="war" depends="compile">
+    <mkdir dir="${war.dir}" />
+    <war destfile="${war.dir}/${war.name}" webxml="${web.dir}/WEB-INF/web.xml">
+      <fileset dir="${web.dir}">
+        <exclude name="WEB-INF/web.xml" />
+      </fileset>
+      <classes dir="${classes.dir}" />
+    </war>
+    <echo message="✅ WAR created at ${war.dir}/${war.name}" />
+  </target>
+
+  <!-- 🚀 Deploy lên Tomcat -->
+  <target name="deploy" depends="war">
+    <copy file="${war.dir}/${war.name}" todir="${tomcat.webapps}" overwrite="true" />
+    <echo message="🚀 Deployed to Tomcat: ${tomcat.webapps}/${war.name}" />
+  </target>
+
+</project>
