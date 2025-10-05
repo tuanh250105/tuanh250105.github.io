@@ -1,5 +1,5 @@
 # Sử dụng OpenJDK 11 làm base image
-FROM openjdk:11-jre-slim
+FROM openjdk:11-jdk-slim
 
 # Cài đặt Apache Tomcat 9
 ENV TOMCAT_VERSION=9.0.109
@@ -43,7 +43,9 @@ COPY lib/ ./lib/
 COPY WebContent/WEB-INF/lib/*.jar ${CATALINA_HOME}/lib/
 
 # Build WAR file
-RUN ant war
+# Ensure Ant knows where Tomcat is installed so the build.xml's javac classpath (tomcat.home/lib)
+# points to the container Tomcat installation. Also use JDK image so javac is available.
+RUN ant -Dtomcat.home=${CATALINA_HOME} war
 
 # Copy WAR file vào webapps
 RUN cp build/war/TA_project_web.war ${CATALINA_HOME}/webapps/
