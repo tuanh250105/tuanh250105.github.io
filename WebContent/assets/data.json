@@ -19,6 +19,8 @@
   {"title":"Viet-Shop","desc":"NestJS + MongoDB + AWS S3 + Node 22. E-commerce and rental platform for clothing with role-based management and image uploads to S3.","tags":["NestJS","MongoDB","AWS S3"],"github":""},
   {"title":"Hadoop Data Pipeline","desc":"HDFS + MapReduce + Sqoop. Mobile device data ingestion pipeline with import/export between MySQL and HDFS, CSV outputs.","tags":["Hadoop","MapReduce","Sqoop"],"github":""},
   {"title":"RL Tic-Tac-Toe AI","desc":"Reinforcement Learning (Q-Learning & DQN, Pygame). Comparative study of learning performance for self-playing Tic-Tac-Toe agents.","tags":["Python","Reinforcement Learning","Pygame"],"github":""}
+  ,
+  {"title":"Homework: Ch14 HK2E","desc":"Homework / demo deployment for chapter 14 (HK2E). Live demo available at the provided link.","tags":["Homework","Demo"],"link":"https://ch14-hk2e.onrender.com","github":""}
   ],
   "contact":{
     "github":"https://github.com/tuanh250105",
